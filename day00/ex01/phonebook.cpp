@@ -84,7 +84,7 @@
 // };
 
 bool isNumber(std::string str) {
-  for (int i = 0; i < str.length(); i++)
+  for (size_t i = 0; i < str.length(); i++)
   {
     if(!isdigit(str[i])) {
       return (false);
@@ -101,7 +101,7 @@ int main(void) {
 
   while (input != "EXIT") {
     std::cout << "'ADD', 'SEARCH', or 'EXIT'" << "\n";
-    std::cin >> input;
+    std::getline(std::cin, input);
     if (input == "ADD"){
       if (counter > 7) {
         std::cout << "Phonebook full" << "\n";
@@ -115,13 +115,16 @@ int main(void) {
         std::cout << obj[i].fourColumn(i) << "\n";
       }
       std::cout << "Give the index for more info, type an invalid input to return" << "\n";
-      std::cin >> indexIn;
+      std::getline(std::cin, indexIn);
       if (isNumber(indexIn)) {
         obj[std::stoi(indexIn)].displayInfo();
       } else {
         std::cout << "invalid input" << "\n";
       }
+    } else if (input == "EXIT") {
+      break;
     }
     input = "";
   }
+  return (0);
 }

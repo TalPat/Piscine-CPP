@@ -4,27 +4,27 @@
 
 void Contact::addData() {
   std::cout << "first name" << "\n";
-  std::cin >> firstName;
+  std::getline(std::cin, firstName, '\n');
   std::cout << "last name" << "\n";
-  std::cin >> lastName;
+  std::getline(std::cin, lastName);
   std::cout << "nickname" << "\n";
-  std::cin >> nickname;
+  std::getline(std::cin, nickname);
   std::cout << "login" << "\n";
-  std::cin >> login;
+  std::getline(std::cin, login);
   std::cout << "postal address" << "\n";
-  std::cin >> postalAddress;
+  std::getline(std::cin, postalAddress);
   std::cout << "email address" << "\n";
-  std::cin >> emailAddress;
+  std::getline(std::cin, emailAddress);
   std::cout << "phone number" << "\n";
-  std::cin >> phoneNumber;
+  std::getline(std::cin, phoneNumber);
   std::cout << "birthday date" << "\n";
-  std::cin >> birthdayDate;
+  std::getline(std::cin, birthdayDate);
   std::cout << "favorite meal" << "\n";
-  std::cin >> favoriteMeal;
+  std::getline(std::cin, favoriteMeal);
   std::cout << "underwear color" << "\n";
-  std::cin >> underwearColor;
+  std::getline(std::cin, underwearColor);
   std::cout << "darkest secret" << "\n";
-  std::cin >> darkestSecret;
+  std::getline(std::cin, darkestSecret);
 }
 
 std::string Contact::fourColumn(int intIndex) {

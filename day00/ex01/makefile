@@ -1,26 +1,30 @@
-CC = clang++
-CFLAGS  = -Wall -Werror -Wextra
+NAME		=	phonebook
+SRCDIR		=	./
+SRC			=	Contacts.cpp\
+					phonebook.cpp
+SRCPATH		:=	$(addprefix $(SRCDIR), $(SRC))
+OBJDIR		=	obj/
+OBJ			=	$(SRC:%.cpp=%.o)
+OBJPATH		:=	$(addprefix $(OBJDIR), $(OBJ))
 
-SRC = phonebook.cpp\
-			Contacts.cpp
-OBJ_DIR = obj
-OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
+HEADER		=	./Contacts.hpp
+CFLAGS		=	-Wall -Werror -Wextra
+CC			=	clang++
+INCLUDES	=	-I $(HEADER)
 
-INC = Contacts.hpp
+all: $(NAME)
 
-NAME = phonebook
+$(NAME): $(OBJPATH)
+	$(CC) -o $(NAME) $(SRCPATH) $(INCLUDES) $(CFLAGS)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
-
-$(OBJ): $(SRC)
-	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $(SRC) -o $@
+$(OBJDIR)%.o: $(SRCDIR)%.cpp
+	mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
 
 clean:
-	rm -rf $(OBJ_DIR)
+	rm -rf $(OBJPATH)
 
-fclean: clean
-	rm $(NAME)
+fclean:	clean
+	rm -rf $(NAME)
 
-all: fclean $(NAME)
+re: fclean all
