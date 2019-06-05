@@ -36,7 +36,7 @@ int main(void) {
       }
       std::cout << "Give the index for more info, type an invalid input to return" << "\n";
       std::getline(std::cin, indexIn);
-      if (isNumber(indexIn)) {
+      if (indexIn != "" && isNumber(indexIn) && std::stoi(indexIn) < counter) {
         obj[std::stoi(indexIn)].displayInfo();
       } else {
         std::cout << "invalid input" << "\n";

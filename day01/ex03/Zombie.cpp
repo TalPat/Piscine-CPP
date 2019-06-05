@@ -2,9 +2,9 @@
 #include <iostream>
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string newName, std::string newType) {
-  name = newName;
-  type = newType;
+Zombie::Zombie(std::string newName, std::string newType): name(newName), type(newType) {
+  // name = newName;
+  // type = newType;
 }
 
 void Zombie::announce() {

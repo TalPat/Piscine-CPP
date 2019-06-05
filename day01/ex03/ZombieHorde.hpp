@@ -10,6 +10,8 @@ class ZombieHorde {
     ~ZombieHorde();
     void announce();
   private:
+    int number;
+    Zombie** zombArr;
   protected:
 };
 
