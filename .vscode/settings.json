@@ -52,6 +52,7 @@
     "string": "cpp",
     "tuple": "cpp",
     "utility": "cpp",
-    "sstream": "cpp"
+    "sstream": "cpp",
+    "fstream": "cpp"
   }
 }
