@@ -9,6 +9,7 @@ private:
     int maximum, minimum, grade;
     const std::string name;
 public:
+    Bureaucrat();
     Bureaucrat(int newGrade, std::string newName);
     ~Bureaucrat();
     Bureaucrat(Bureaucrat &obj);

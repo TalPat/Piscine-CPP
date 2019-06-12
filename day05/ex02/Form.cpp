@@ -59,7 +59,25 @@ const char* Form::GradeTooHighException::what() const throw() {
     return("Too high");
 }
 
+const char* Form::FormNotSignedException::what() const throw() {
+    return("Not signed");
+}
+
 std::ostream &operator<<(std::ostream& out, const Form &obj) {
     out << obj.getName() << ", Form sign requirement " << obj.getReqSign() << ", Form execute requirement " << obj.getReqExecute() << (obj.getBeenSigned() ? ", signed" : ", unsigned");
     return (out);
+}
+
+
+std::string Form::getTarget() const{
+    return (this->target);
+}
+
+void Form::setTarget(std::string newTarget){
+    this->target = newTarget;
+}
+
+
+void Form::setBeenSigned(bool newBeenSigned) {
+    this->beenSigned = newBeenSigned;
 }

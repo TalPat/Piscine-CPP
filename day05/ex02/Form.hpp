@@ -11,6 +11,7 @@ private:
     static const int MAX = 1;
     static const int MIN = 150;
 
+    std::string target;
     const std::string name;
     bool beenSigned;
     const int reqSign, reqExecute;
@@ -23,8 +24,12 @@ public:
     Form& operator=(const Form &obj);
     
     void beSigned(Bureaucrat &obj);
+    virtual void execute(Bureaucrat const &executor) const = 0;
 
     std::string getName() const;
+    std::string getTarget() const;
+    void setTarget(std::string newTarget);
+    void setBeenSigned(bool newBeenSigned);
     int getReqSign() const;
     int getReqExecute() const;
     bool getBeenSigned() const;
@@ -32,6 +37,8 @@ public:
     class GradeTooHighException;
 
     class GradeTooLowException;
+
+    class FormNotSignedException;
 };
 
 class Form::GradeTooHighException : public std::exception {
@@ -40,6 +47,11 @@ class Form::GradeTooHighException : public std::exception {
 };
 
 class Form::GradeTooLowException : public std::exception {
+    public:
+        virtual const char* what() const throw();
+};
+
+class Form::FormNotSignedException : public std::exception {
     public:
         virtual const char* what() const throw();
 };

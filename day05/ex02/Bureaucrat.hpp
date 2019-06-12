@@ -22,6 +22,7 @@ public:
     void incrementGrade();
     void decrementGrade();
     void signForm(Form &obj);
+    void executeForm(Form const & form);
 
     int getGrade() const;
     std::string getName() const;
